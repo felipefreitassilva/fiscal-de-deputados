@@ -1,0 +1,39 @@
+<div class="filters">
+  <mat-form-field>
+    <mat-label>Sort</mat-label>
+    <mat-select
+      panelClass="sort-select"
+      [(ngModel)]="sort"
+    >
+      <mat-option value="name">Name</mat-option>
+      <mat-option value="-released">Released</mat-option>
+      <mat-option value="-added">Added</mat-option>
+      <mat-option value="-created">Created</mat-option>
+      <mat-option value="-updated">Updated</mat-option>
+      <mat-option value="-rating">Rating</mat-option>
+      <mat-option value="metacritic">Metacritic</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div class="games">
+  <div class="game">
+    <div class="game-thumb-container">
+      <img
+        src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2F0wZ2erOtR9A%2Fmaxresdefault.jpg&f=1&nofb=1"
+        alt="thumbnail"
+        class="game-thumbnail"
+      >
+      <div class="game-description">
+        <p class="game-name">Name</p>
+        <div class="game-platforms">
+          <img
+            class="game-platform"
+            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fassets1.ignimgs.com%2F2018%2F07%2F06%2Fxbox---generic-bug-1530916990792.jpg&f=1&nofb=1"
+            alt="slug"
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
