@@ -1,24 +1,24 @@
-# fiscal-de-deputados
-    Desafio front-end - Fiscal de deputados
+# fiscal-de-deputados<br>
+    Desafio front-end - Fiscal de deputados<br>
 
-# Instalation:
+# Instalation:<br>
 
-  Choose the root folder
+  Choose the root folder<br>
 
-  in the cmd write:
-    ng new fiscal-de-deputados
-      Add Angular Routing
-      StyleSheet = SCSS
+  in the cmd write:<br>
+    ng new fiscal-de-deputados<br>
+      Add Angular Routing<br>
+      StyleSheet = SCSS<br>
 
-  Initialize:
-    cd fiscal-de-deputados
-    ng serve --open
+  Initialize:<br>
+    cd fiscal-de-deputados<br>
+    ng serve --open<br>
 
-  Install packages:
-    ng add @angular/material
-      theme: Deep Purple/Amber
-      "y" to all
-    npm i angular-gauge
+  Install packages:<br>
+    ng add @angular/material<br>
+      theme: Deep Purple/Amber<br>
+      "y" to all<br>
+    npm i angular-gauge<br>
 
 <!--
 Breaks:
