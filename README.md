@@ -21,3 +21,6 @@ theme: Deep Purple/Amber
 "y" to all
 
     npm i angular-gauge
+
+10:08 - Pause
+10:26 - Resume
