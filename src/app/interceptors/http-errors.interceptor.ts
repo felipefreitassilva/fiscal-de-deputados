@@ -19,7 +19,7 @@ intercept(
 ): Observable<HttpEvent<any>> {
   return next.handle(req).pipe(
     catchError((err) => {
-      console.log(err);
+      console.log('http-errors: ', err);
       return observableThrowError(err);
     })
   );
