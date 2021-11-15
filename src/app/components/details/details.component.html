@@ -2,22 +2,17 @@
   <div class="deputado-banner">
     <img
       class="deputado-banner-img"
-      src="{{ deputado.urlFoto }}"
+      src="../../../assets/images/platforms/linux.svg"
       alt="background image"
     />
   </div>
   <div class="deputado-content">
     <div class="details-wrapper">
       <div class="deputado-header">
-        <h1 class="deputado-header-title">{{ deputado.nome }}</h1>
+        <h1 class="deputado-header-title">Nome do Deputado</h1>
         <h2 class="deputado-header-release-date">
-          Release: {{ deputado.siglaPartido | date }}
+          Partido - Estado
         </h2>
-        <p class="deputado-header-genres">
-          <span>
-            {{ deputado.siglaUf }}
-          </span>
-        </p>
       </div>
       <app-deputado-tabs [deputado]="deputado"></app-deputado-tabs>
     </div>
