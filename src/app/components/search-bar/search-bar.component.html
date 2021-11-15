@@ -2,9 +2,9 @@
   <form class="search-form" #form="ngForm" (ngSubmit)="onSubmit(form)">
     <span class="logo" routerLink="/">Buscar deputados</span>
     <input
+      ngModel
       class="search-input"
       name="search"
-      ngModel
       placeholder="Digite o nome, partido ou estado de um deputado"
     >
     <button class="search-button">

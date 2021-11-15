@@ -14,7 +14,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { HomeComponent } from './components/home/home.component'
 import { DetailsComponent } from './components/details/details.component';
-import { DeputadoTabsComponent } from './components/deputado-tabs/deputado-tabs.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +21,6 @@ import { DeputadoTabsComponent } from './components/deputado-tabs/deputado-tabs.
     SearchBarComponent,
     HomeComponent,
     DetailsComponent,
-    DeputadoTabsComponent
   ],
   imports: [
     BrowserModule,

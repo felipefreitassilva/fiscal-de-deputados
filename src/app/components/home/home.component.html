@@ -6,10 +6,10 @@
       [(ngModel)]="sort"
       (selectionChange)="searchDeputados(sort)"
     >
-      <mat-option value="name">Nome</mat-option>
-      <mat-option value="party">Partido</mat-option>
-      <mat-option value="state">Estado</mat-option>
-      <mat-option value="gender">Sexo</mat-option>
+      <mat-option value="nome">Nome</mat-option>
+      <mat-option value="-siglaPartido">Partido</mat-option>
+      <mat-option value="-siglaUf">Estado</mat-option>
+      <mat-option value="-sexo">Sexo</mat-option>
     </mat-select>
   </mat-form-field>
 </div>
