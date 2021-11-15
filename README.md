@@ -31,4 +31,6 @@ Breaks:
 
 Day 2:
 9:50 - Start
+10:37 - Break
+10:57 - Resume
 -->

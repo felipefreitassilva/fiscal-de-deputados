@@ -6,7 +6,7 @@
 
 ::ng-deep {
   .mat-form-field-infix {
-    background-color: #3f51b5;
+    background-color: #155799;
   }
 
   .mat-select-value,
@@ -41,25 +41,25 @@
 }
 
 .deputado {
-  width: 280px;
+  width: 200px;
   margin: 10px;
-  height: 330px;
+  height: 300px;
   overflow: hidden;
   border-radius: 5px;
-  background-color: #202020;
-  box-shadow: 4px 3px 8px 0px rgb(200 152 44 / 22%);
-  transition-duration: 0.3s;
+  background-color: #155799;
+  box-shadow: 2px 2px 8px 0px #579915;
+  transition-duration: 0.8s;
   cursor: pointer;
 
   &:hover {
-    box-shadow: 4px 3px 11px 6px rgb(200 152 44 / 46%);
+    box-shadow: 0.3px 3px 11px 4px #62dc16;
     transform: translateY(-3px);
   }
 
   &-thumb-container {
-    background-color: #000;
+    background-color: #fff;
     position: relative;
-    height: 172px;
+    height: 200px;
     color: #fff;
     text-align: center;
   }
@@ -70,33 +70,18 @@
     left: 0;
     right: 0;
     margin: 0 auto;
-    height: 172px;
+    height: 200px;
   }
 
   &-description {
-    padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    height: 157px;
-  }
+    justify-content: center;
+    height: 100px;
 
-  &-nome {
-    color: #fff;
-    font-weight: 700;
-    font-size: 22px;
-    margin-bottom: 20px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
-
-  &-platforms {
-    display: flex;
-  }
-
-  &-platform {
-    width: 20px;
-    margin-right: 10px;
+    &-item {
+      color: white;
+      text-align: center;
+    }
   }
 }

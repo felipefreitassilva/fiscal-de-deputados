@@ -23,7 +23,6 @@ export class HttpService {
 
     return this.http.get<APIResponse<Deputado>>(`${env.BASE_URL}`, {
       params: params,
-
     });
   }
 
@@ -40,8 +39,8 @@ export class HttpService {
       map((resp: any) => {
         return {
           ...resp['deputadoInfoRequest'],
-          screenshots: resp['deputadoScreenshotsRequest']?.results,
-          trailers: resp['deputadoTrailersRequest']?.results,
+          screenshots: resp['deputadoScreenshotsRequest']?.dados,
+          trailers: resp['deputadoTrailersRequest']?.dados,
         }
       })
     )

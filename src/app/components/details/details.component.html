@@ -15,27 +15,9 @@
         </h2>
         <p class="deputado-header-genres">
           <span>
-            {{ deputado.siglaUF }}
+            {{ deputado.siglaUf }}
           </span>
         </p>
-        <div class="deputado-gauge">
-          <mwl-gauge
-            class="two"
-            [max]="100"
-            [dialStartAngle]="180"
-            [dialEndAngle]="0"
-            [value]="deputadoRating"
-            [animated]="true"
-            [color]="getColor"
-            [animationDuration]="2"
-          >
-          </mwl-gauge>
-          <a
-            class="deputado-gauge-label"
-            target="_blank"
-            href="{{ deputado.email }}"
-          >Metacritic</a>
-        </div>
       </div>
       <app-deputado-tabs [deputado]="deputado"></app-deputado-tabs>
     </div>

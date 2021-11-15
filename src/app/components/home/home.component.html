@@ -16,26 +16,20 @@
 
 <div class="deputados">
   <ng-container *ngFor="let deputado of deputados">
-    <div class="deputado" (click)="openDeputadoDetails(deputado.id)">
-      <div class="deputado-thumb-container">
-        <img
-          *ngIf="deputado.urlFoto"
-          src="{{ deputado.urlFoto }}"
-          alt="thumbnail"
-          class="deputado-thumbnail"
-        >
-        <p *ngIf="!deputado.urlFoto">No image</p>
-      </div>
-        <div class="deputado-description">
-          <p class="deputado-name">{{ deputado.nome }}</p>
-          <div class="deputado-platforms">
-            <img
-             class="deputado-platform"
-             src="assets/images/platforms/xbox.svg"
-             alt="{{ deputado.urlFoto }}"
-            >
-          </div>
+      <div class="deputado" (click)="openDeputadoDetails(deputado.id)">
+        <div class="deputado-thumb-container">
+          <img
+            *ngIf="deputado.urlFoto"
+            src="{{ deputado.urlFoto }}"
+            alt="thumbnail"
+            class="deputado-thumbnail"
+          >
+          <p *ngIf="!deputado.urlFoto">No image</p>
         </div>
-    </div>
+          <div class="deputado-description">
+            <p class="deputado-description-item">{{ deputado.nome }}</p>
+            <p class="deputado-description-item">{{ deputado.siglaPartido }} - {{ deputado.siglaUf }}</p>
+          </div>
+      </div>
   </ng-container>
 </div>
