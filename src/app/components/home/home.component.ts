@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.deputadoSub = this.httpService
       .getDeputadoList(sort, search)
       .subscribe((deputadoList: APIResponse<Deputado>) => {
-        this.deputados = deputadoList.results;
+        this.deputados = deputadoList.dados;
         console.log(deputadoList)
       });
   }
