@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Game } from 'src/app/models';
+import { Deputado } from 'src/app/models';
 import { HttpService } from 'src/app/services/http.service';
 
 @Component({
@@ -10,11 +10,11 @@ import { HttpService } from 'src/app/services/http.service';
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit, OnDestroy {
-  gameRating = 0;
-  gameId!: string;
-  game!: Game;
+  deputadoRating = 0;
+  deputadoId!: string;
+  deputado!: Deputado;
   routeSub!: Subscription;
-  gameSub!: Subscription;
+  deputadoSub!: Subscription;
 
   constructor(
     private ActivatedRoute: ActivatedRoute,
@@ -23,20 +23,16 @@ export class DetailsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.routeSub = this.ActivatedRoute.params.subscribe((params: Params) => {
-      this.gameId = params['id'];
-      this.getGameDetails(this.gameId);
+      this.deputadoId = params['id'];
+      this.getDeputadoDetails(this.deputadoId);
     })
   }
 
-  getGameDetails(id: string): void {
-    this.gameSub = this.httpService
-      .getGameDetails(id)
-      .subscribe((gameResp: Game) => {
-        this.game = gameResp;
-
-        setTimeout(() => {
-          this.gameRating = this.game.metacritic
-        }, 1000);
+  getDeputadoDetails(id: string): void {
+    this.deputadoSub = this.httpService
+      .getDeputadoDetails(id)
+      .subscribe((deputadoResp: Deputado) => {
+        this.deputado = deputadoResp;
       });
   }
 
@@ -53,8 +49,8 @@ export class DetailsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.gameSub) {
-      this.gameSub.unsubscribe();
+    if (this.deputadoSub) {
+      this.deputadoSub.unsubscribe();
     }
 
     if (this.routeSub) {

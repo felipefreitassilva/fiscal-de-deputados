@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { forkJoin, map, Observable } from 'rxjs';
 import { environment as env } from 'src/environments/environment';
-import { APIResponse, Game } from '../models';
+import { APIResponse, Deputado } from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -11,37 +11,37 @@ export class HttpService {
 
   constructor(private http: HttpClient) { }
 
-  getGameList(
+  getDeputadoList(
     ordering: string,
     search?: string
-  ): Observable<APIResponse<Game>> {
-    let params = new HttpParams().set('ordering', ordering);
+  ): Observable<APIResponse<Deputado>> {
+    let params = new HttpParams();
 
     if (search) {
-      params = new HttpParams().set('ordering', ordering).set('search', search)
+      params = new HttpParams().set('search', search)
     }
 
-    return this.http.get<APIResponse<Game>>(`${env.BASE_URL}/games`, {
+    return this.http.get<APIResponse<Deputado>>(`${env.BASE_URL}`, {
       params: params,
 
     });
   }
 
-  getGameDetails(id: string): Observable<Game> {
-    const gameInfoRequest = this.http.get(`${env.BASE_URL}/games/${id}`);
-    const gameTrailersRequest = this.http.get(`${env.BASE_URL}/games/${id}/movies`);
-    const gameScreenshotsRequest = this.http.get(`${env.BASE_URL}/games/${id}/screenshots`);
+  getDeputadoDetails(id: string): Observable<Deputado> {
+    const deputadoInfoRequest = this.http.get(`${env.BASE_URL}/${id}`);
+    const deputadoTrailersRequest = this.http.get(`${env.BASE_URL}/${id}/movies`);
+    const deputadoScreenshotsRequest = this.http.get(`${env.BASE_URL}/${id}/screenshots`);
 
     return forkJoin({
-      gameInfoRequest,
-      gameTrailersRequest,
-      gameScreenshotsRequest,
+      deputadoInfoRequest,
+      deputadoTrailersRequest,
+      deputadoScreenshotsRequest,
     }).pipe(
       map((resp: any) => {
         return {
-          ...resp['gameInfoRequest'],
-          screenshots: resp['gameScreenshotsRequest']?.results,
-          trailers: resp['gameTrailersRequest']?.results,
+          ...resp['deputadoInfoRequest'],
+          screenshots: resp['deputadoScreenshotsRequest']?.results,
+          trailers: resp['deputadoTrailersRequest']?.results,
         }
       })
     )

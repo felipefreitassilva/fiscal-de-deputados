@@ -1,44 +1,43 @@
 <div class="details">
-  <div class="game-banner">
+  <div class="deputado-banner">
     <img
-      class="game-banner-img"
-      src="{{ game.background_image }}"
+      class="deputado-banner-img"
+      src="{{ deputado.urlFoto }}"
       alt="background image"
     />
   </div>
-  <div class="game-content">
+  <div class="deputado-content">
     <div class="details-wrapper">
-      <div class="game-header">
-        <h1 class="game-header-title">{{ game.name }}</h1>
-        <h2 class="game-header-release-date">
-          Release: {{ game.released | date }}
+      <div class="deputado-header">
+        <h1 class="deputado-header-title">{{ deputado.nome }}</h1>
+        <h2 class="deputado-header-release-date">
+          Release: {{ deputado.siglaPartido | date }}
         </h2>
-        <p class="game-header-genres">
-          <span *ngFor="let genre of game.genres; let last = last">
-            {{ genre.name }}
-            <span *ngIf="!last">,</span>
+        <p class="deputado-header-genres">
+          <span>
+            {{ deputado.siglaUF }}
           </span>
         </p>
-        <div class="game-gauge">
+        <div class="deputado-gauge">
           <mwl-gauge
             class="two"
             [max]="100"
             [dialStartAngle]="180"
             [dialEndAngle]="0"
-            [value]="gameRating"
+            [value]="deputadoRating"
             [animated]="true"
             [color]="getColor"
             [animationDuration]="2"
           >
           </mwl-gauge>
           <a
-            class="game-gauge-label"
+            class="deputado-gauge-label"
             target="_blank"
-            href="{{ game.metacritic_url }}"
+            href="{{ deputado.email }}"
           >Metacritic</a>
         </div>
       </div>
-      <app-game-tabs [game]="game"></app-game-tabs>
+      <app-deputado-tabs [deputado]="deputado"></app-deputado-tabs>
     </div>
   </div>
 </div>

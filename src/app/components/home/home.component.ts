@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { APIResponse, Game } from 'src/app/models';
+import { APIResponse, Deputado } from 'src/app/models';
 import { HttpService } from 'src/app/services/http.service';
 
 @Component({
@@ -11,9 +11,9 @@ import { HttpService } from 'src/app/services/http.service';
 })
 export class HomeComponent implements OnInit, OnDestroy {
   public sort!: string;
-  public games!: Array<Game>;
+  public deputados!: Array<Deputado>;
   public routeSub!: Subscription;
-  public gameSub!: Subscription;
+  public deputadoSub!: Subscription;
 
   constructor(
     private httpService: HttpService,
@@ -23,30 +23,30 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.routeSub = this.activatedRoute.params.subscribe((params: Params) => {
-      if (params['game-search']) {
-        this.searchGames('metacritic', params['game-search']);
+      if (params['deputado-search']) {
+        this.searchDeputados('metacritic', params['deputado-search']);
       } else {
-        this.searchGames('metacritic');
+        this.searchDeputados('metacritic');
       }
     })
   }
 
-  searchGames(sort: string, search?: string): void {
-    this.gameSub = this.httpService
-      .getGameList(sort, search)
-      .subscribe((gameList: APIResponse<Game>) => {
-        this.games = gameList.results;
-        console.log(gameList)
+  searchDeputados(sort: string, search?: string): void {
+    this.deputadoSub = this.httpService
+      .getDeputadoList(sort, search)
+      .subscribe((deputadoList: APIResponse<Deputado>) => {
+        this.deputados = deputadoList.results;
+        console.log(deputadoList)
       });
   }
 
-  openGameDetails(id: string): void {
+  openDeputadoDetails(id: string): void {
     this.router.navigate(['details', id])
   }
 
   ngOnDestroy(): void {
-    if (this.gameSub) {
-      this.gameSub.unsubscribe();
+    if (this.deputadoSub) {
+      this.deputadoSub.unsubscribe();
     }
 
     if (this.routeSub) {
