@@ -21,26 +21,26 @@ export class HttpService {
       params = new HttpParams().set('search', search)
     }
 
-    return this.http.get<APIResponse<Deputado>>(`${env.BASE_URL}`, {
+    return this.http.get<APIResponse<Deputado>>(`${env.BASE_URL}/deputados`, {
       params: params,
     });
   }
 
   getDeputadoDetails(id: string): Observable<Deputado> {
-    const deputadoInfoRequest = this.http.get(`${env.BASE_URL}/${id}`);
-    const deputadoTrailersRequest = this.http.get(`${env.BASE_URL}/${id}/movies`);
-    const deputadoScreenshotsRequest = this.http.get(`${env.BASE_URL}/${id}/screenshots`);
+    const deputadoInfoRequest = this.http.get(`${env.BASE_URL}/deputados/${id}`);
+    const deputadoDespesasRequest = this.http.get(`${env.BASE_URL}/deputados/${id}/despesas`);
+    const deputadoEventosRequest = this.http.get(`${env.BASE_URL}/deputados/${id}/Eventos`);
 
     return forkJoin({
       deputadoInfoRequest,
-      deputadoTrailersRequest,
-      deputadoScreenshotsRequest,
+      deputadoDespesasRequest,
+      deputadoEventosRequest,
     }).pipe(
       map((resp: any) => {
         return {
           ...resp['deputadoInfoRequest'],
-          screenshots: resp['deputadoScreenshotsRequest']?.dados,
-          trailers: resp['deputadoTrailersRequest']?.dados,
+          eventos: resp['deputadoEventosRequest']?.dados,
+          despesas: resp['deputadoDespesasRequest']?.dados,
         }
       })
     )
