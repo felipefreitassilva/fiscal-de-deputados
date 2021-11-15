@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Deputado, DeputadoDetails } from 'src/app/models';
+import { APIResponse, Deputado, DeputadoDetails } from 'src/app/models';
 import { HttpService } from 'src/app/services/http.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { HttpService } from 'src/app/services/http.service';
 })
 export class DetailsComponent implements OnInit, OnDestroy {
   deputadoId!: string;
-  deputado!: Deputado;
+  deputados!: Array<DeputadoDetails>;
   routeSub!: Subscription;
   deputadoSub!: Subscription;
 
@@ -30,9 +30,10 @@ export class DetailsComponent implements OnInit, OnDestroy {
   getDeputadoDetails(id: string): void {
     this.deputadoSub = this.httpService
       .getDeputadoDetails(id)
-      .subscribe((deputadoResp: Deputado) => {
-        this.deputado = deputadoResp;
-      });
+      .subscribe((deputadoList: APIResponse<DeputadoDetails>)=>{
+        this.deputados = deputadoList.dados;
+        console.log(this.deputados)
+      })
   }
 
   ngOnDestroy(): void {

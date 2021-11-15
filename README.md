@@ -22,15 +22,21 @@ theme: Deep Purple/Amber<br>
 npm i angular-gauge<br>
 
 <!--
-Breaks:
+Day 1:
 10:08 - Pause
 10:26 - Resume
 
 12:37 - Pause
 18:47 - Resume
 
+
 Day 2:
+
 9:50 - Start
 10:37 - Break
 10:57 - Resume
+13:20 - Pause
+
+15:20 - Return
+16:50 - Pause
 -->
