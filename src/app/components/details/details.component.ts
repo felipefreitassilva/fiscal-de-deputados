@@ -32,7 +32,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
       .getDeputadoDetails(id)
       .subscribe((deputadoList: APIResponse<DeputadoDetails>)=>{
         this.deputados = deputadoList.dados;
-        console.log(this.deputados)
+        console.log(deputadoList)
       })
   }
 

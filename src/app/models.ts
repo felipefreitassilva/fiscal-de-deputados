@@ -11,46 +11,46 @@ export interface Deputado {
 }
 
 export interface DeputadoDetails {
-    cpf: string,
-    dataFalecimento: string,
-    dataNascimento: string,
-    escolaridade: string,
-    id: string,
-    municipioNascimento: string,
-    nomeCivil: string,
-    redeSocial: [
-      string
-    ],
-    sexo: string,
-    ufNascimento: string,
-    ultimoStatus: {
-      condicaoEleitoral: string,
-      data: string,
-      descricaoStatus: string,
+  cpf: string,
+  dataFalecimento: string,
+  dataNascimento: string,
+  escolaridade: string,
+  id: string,
+  municipioNascimento: string,
+  nomeCivil: string,
+  redeSocial: [
+    string
+  ],
+  sexo: string,
+  ufNascimento: string,
+  ultimoStatus: {
+    condicaoEleitoral: string,
+    data: string,
+    descricaoStatus: string,
+    email: string,
+    gabinete: {
+      andar: string,
       email: string,
-      gabinete: {
-        andar: string,
-        email: string,
-        nome: string,
-        predio: string,
-        sala: string,
-        telefone: string
-      },
-      id: string,
-      idLegislatura: string,
       nome: string,
-      nomeEleitoral: string,
-      siglaPartido: string,
-      siglaUf: string,
-      situacao: string,
-      uri: string,
-      uriPartido: string,
-      urlFoto: string
+      predio: string,
+      sala: string,
+      telefone: string
     },
+    id: string,
+    idLegislatura: string,
+    nome: string,
+    nomeEleitoral: string,
+    siglaPartido: string,
+    siglaUf: string,
+    situacao: string,
     uri: string,
-    urlWebsite: string
+    uriPartido: string,
+    urlFoto: string
+  },
+  uri: string,
+  urlWebsite: string
 }
 
 export interface APIResponse<T> {
-    dados: Array<T>;
+  dados: Array<T>;
 }
