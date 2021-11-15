@@ -1,0 +1,37 @@
+<div class="deputado-tabs">
+  <mat-tab-group mat-align-tabs="start" backgroundColor="primary">
+    <mat-tab label="About">
+      <p class="deputado-tabs-par">
+        Platforms:
+          <!-- {{ deputado.platform.nome }} -->
+      </p>
+      <p class="deputado-tabs-par">
+        Publishers:
+        <span>
+          {{ deputado.nome }}
+        </span>
+      </p>
+      <p *ngIf="deputado.uri" class="deputado-tabs-par">
+        Website:
+        <a class="deputado-tabs-link" href="{{ deputado.uri }}" target="_blank">{{ deputado.uri }}</a>
+      </p>
+      <div class="deputado-description" [innerHTML]="deputado.idLegislatura"></div>
+    </mat-tab>
+    <mat-tab label="Screenshots">
+      <img
+        class="deputado-screenshot"
+        src="{{ deputado.urlFoto }}"
+        alt="Screenshot"
+      >
+    </mat-tab>
+    <mat-tab label="Trailers">
+      <video
+        class="deputado-trailer"
+        controls
+      >
+        <source src="" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </mat-tab>
+  </mat-tab-group>
+</div>

@@ -4,7 +4,7 @@
     <mat-select
       panelClass="sort-select"
       [(ngModel)]="sort"
-      (selectionChange)="searchGames(sort)"
+      (selectionChange)="searchDeputados(sort)"
     >
       <mat-option value="name">Nome</mat-option>
       <mat-option value="-released">Partido</mat-option>
@@ -14,28 +14,26 @@
   </mat-form-field>
 </div>
 
-<div class="games">
-  <ng-container *ngFor="let game of games">
-    <div class="game" (click)="openGameDetails(game.id)">
-      <div class="game-thumb-container">
+<div class="deputados">
+  <ng-container *ngFor="let deputado of deputados">
+    <div class="deputado" (click)="openDeputadoDetails(deputado.id)">
+      <div class="deputado-thumb-container">
         <img
-          *ngIf="game.background_image"
-          src="{{ game.background_image }}"
+          *ngIf="deputado.urlFoto"
+          src="{{ deputado.urlFoto }}"
           alt="thumbnail"
-          class="game-thumbnail"
+          class="deputado-thumbnail"
         >
-        <p *ngIf="!game.background_image">No image</p>
+        <p *ngIf="!deputado.urlFoto">No image</p>
       </div>
-        <div class="game-description">
-          <p class="game-name">{{ game.name }}</p>
-          <div class="game-platforms">
+        <div class="deputado-description">
+          <p class="deputado-name">{{ deputado.nome }}</p>
+          <div class="deputado-platforms">
             <img
-            *ngFor="let gamePlatform of game.parent_platforms"
-             class="game-platform"
+             class="deputado-platform"
              src="assets/images/platforms/xbox.svg"
-             alt="{{ gamePlatform.platform }}"
+             alt="{{ deputado.urlFoto }}"
             >
-            <!-- {{gamePlatform.platform.slug}} -->
           </div>
         </div>
     </div>
