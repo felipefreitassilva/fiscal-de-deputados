@@ -18,7 +18,7 @@ export class HttpService {
     let params = new HttpParams();
 
     if (search) {
-      params = new HttpParams().set('search', search)
+      params = new HttpParams().set('', search)
     }
 
     return this.http.get<APIResponse<Deputado>>(`${env.BASE_URL}/deputados`, {
@@ -27,23 +27,24 @@ export class HttpService {
   }
 
   getDeputadoDetails(id: string): Observable<APIResponse<DeputadoDetails>> {
-    const deputadoInfoRequest = this.http.get(`${env.BASE_URL}/deputados/${id}`);
+    let params = new HttpParams()
+    return this.http.get<APIResponse<DeputadoDetails>>(`${env.BASE_URL}/deputados/${id}`, {params: params});
     // const deputadoDespesasRequest = this.http.get(`${env.BASE_URL}/deputados/${id}/despesas`);
     // const deputadoEventosRequest = this.http.get(`${env.BASE_URL}/deputados/${id}/eventos`);
 
-    return forkJoin({
-      deputadoInfoRequest,
-      // deputadoDespesasRequest,
-      // deputadoEventosRequest,
-    }).pipe(
-      map((resp: any) => {
-        return {
-          ...resp['deputadoInfoRequest'],
-          // eventos: resp['deputadoEventosRequest']?.dados,
-          // despesas: resp['deputadoDespesasRequest']?.dados,
-        }
-      })
-    )
+    // return forkJoin({
+    //   deputadoInfoRequest,
+    //   // deputadoDespesasRequest,
+    //   // deputadoEventosRequest,
+    // }).pipe(
+    //   map((resp: any) => {
+    //     return {
+    //       ...resp['deputadoInfoRequest'],
+    //       // eventos: resp['deputadoEventosRequest']?.dados,
+    //       // despesas: resp['deputadoDespesasRequest']?.dados,
+    //     }
+    //   })
+    // )
   }
 
 }
